@@ -1,2 +1,5 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+(詳細画面も同じように画像を表示:app/views/books/show.html.erbに入力)
+<h2>画像</h2>
+<% if @book.image.attached? %>
+  <%= image_tag @book.image, size: "300x300" %>
+<% end %>
