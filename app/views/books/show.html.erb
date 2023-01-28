@@ -1,5 +1,5 @@
 (詳細画面も同じように画像を表示:app/views/books/show.html.erbに入力)
 <h2>画像</h2>
 <% if @book.image.attached? %>
-  <%= image_tag @book.image, size: "300x300" %>
+  <%=image_tag @book.get_propfile_image(300,300) %>
 <% end %>
