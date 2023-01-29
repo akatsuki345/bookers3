@@ -1,3 +1,3 @@
-(詳細画面も同じように画像を表示:app/views/books/show.html.erbに入力)
-<h2>画像</h2>
   <%=image_tag @book.user.get_profile_image(100,100) %>
+
+  <%= render "users/books", user: current_user %>
