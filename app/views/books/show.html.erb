@@ -1,3 +1,28 @@
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+ <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+
+   <% if flash[:success] %>
+     <p id="success">
+       <%= flash[:success] %>
+     </p>
+   <% end %>
+
+   <% if @book.user == current_user %>
+    <%= link_to "削除", book_path(@book), method: :delete %>
+  <% end %>
+
   <%=image_tag @book.user.get_profile_image(100,100) %>
 
 <div class="container">
