@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    flash[:success] = "Signed in successfully."
+
   end
 
   def edit
