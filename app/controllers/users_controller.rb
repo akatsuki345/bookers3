@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
     flash[:success] = "Signed in successfully."
-    flash[:notice] = "Welcome! You have signed up successfully."
   end
 
   def edit
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   def update
     flash[:success] = "You have updated user successfully."
     @user = User.find(params[:id])
-    @user.update(user_params)
+    @user.update!(user_params)
     redirect_to user_path(@user.id)
   end
 
