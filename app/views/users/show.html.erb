@@ -1,3 +1,4 @@
+<%= render 'users/list', user: current_user,book: @book %>
 <% if @user.errors.any? %>
   <%= @user.errors.count %>error prohibited this obj from being saved:
   <ul>
@@ -12,20 +13,34 @@
      <%= flash[:success] %>
   </p>
 <% end %>
-<%= render 'users/list', user: current_user,book: @book %>
-<div class="col-lg-8">
-   <table class="table table-striped">
-   <h1>Books</h1>
-   <p>Title</p>
-   <p>Opinion</p>
-   <% @books.each do |book| %>
-   <%=image_tag book.user.get_profile_image(100,100) %>
 
-   <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-   <% end %>
 
-   <span><%= book.body %></span>
-   <% end %>
-   </table>
-  </div>
+
+<!DOCTYPE html>
+  <body>
+    <main>
+      <div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>

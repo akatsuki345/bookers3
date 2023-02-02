@@ -1,5 +1,5 @@
 <% if book.errors.any? %>
-  <%= book.errors.count %>error prohibited this obj from being saved:
+  <%= book.errors.count %>error prohibited this obj from being saved:>
   <ul>
     <% book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -7,20 +7,51 @@
   </ul>
 <% end %>
 
-<div class="container">
- <div class="row">
-  <div class="col-lg-4">
-   <h1>User info</h1>
-    <%=image_tag current_user.get_profile_image(200,200) %>
-    <p>name</p>
-    <P>introduction	</P>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
-    <h1>New book</h1>
-    <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-    <%= f.text_field :title %>
-    <h4>Opinion</h4>
-    <%= f.text_area :body %>
-    <%= f.submit 'Create Book' %>
-   <% end %>
-   <%= render 'users/list', user: current_user,book: @book %>
+<!DOCTYPE html>
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+ <head>
+  <body>
+    <main>
+     <div class="container px-5 px-sm-0">
+       <div class="row">
+         <div class="col-md-3">
+           <h2>User info</h2>
+             <%=image_tag current_user.get_profile_image(200,200) %>
+             <table class="table">
+               <tbody>
+                 <tr></tr>
+                 <tr>
+                  <th>name</th>
+                  <th><%= user.name %></th>
+                 </tr>
+                 <tr>
+                  <th>introduction</th>
+                  <th><%= user.introduction %></th>
+                 </tr>
+               </tbody>
+              </table>
+              <div class="row">
+               <a class="btn btn-outline-secondary btn-block edit_user_path(@user.id)" >
+                <%= link_to edit_user_path(@user.id) do%>
+                <i class="fas fa-user-cog"></i>
+                <% end %>
+               </a>
+              </div>
+              <h2 class="mt-3">New book</h2>
+              <form action="/books" accept-charset="UTF-8" method="post">
+               <div class="form-group">
+              <%= form_with model: @book do |f| %>
+              <h4>Title</h4>
+              <%= f.text_field :title %>
+              </div>
+              <h4>Opinion</h4>
+              <%= f.text_area :body %>
+              <div class="form-group">
+              <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+              </div>
+              <% end %>
+              </form>
+    </main>
+  </body>
+ </head>
+</html>
