@@ -1,6 +1,7 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
 <%= render 'users/list', user: current_user,book: @book %>
   <div class="col-lg-8">
-   <table class="table table-striped">
    <h1>Books</h1>
    <p>image</p>
    <p>name</p>
@@ -9,7 +10,6 @@
    <span><%= user.name %></span>
    <%= link_to 'Show', user_path(user.id) %>
    <% end %>
-   </table>
   </div>
  </div>
 </div>
