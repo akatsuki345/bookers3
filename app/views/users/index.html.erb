@@ -1,16 +1,21 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-<%= render 'users/list', user: current_user,book: @book %>
-  <div class="col-lg-8">
-   <h1>Books</h1>
-   <p>image</p>
-   <p>name</p>
-   <% @users.each do |user| %>
-   <%=image_tag user.get_profile_image(100,100) %>
-   <span><%= user.name %></span>
-   <%= link_to 'Show', user_path(user.id) %>
-   <% end %>
+    <div class="col-md-3">
+     <%= render 'users/list', user: current_user,book: @book %>
+       <div class="col-md-8 offset">
+        <h2>Users</h2>
+         <table class="table table-striped">
+         <p>image</p>
+         <p>name</p>
+     <% @users.each do |user| %>
+     <%=image_tag user.get_profile_image(100,100) %>
+        <span><%= user.name %></span>
+     <%= link_to 'Show', user_path(user.id) %>
+     <% end %>
+         </table>
+       </div>
+    </div>
   </div>
- </div>
 </div>
+
 
