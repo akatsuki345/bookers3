@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-  <head>
-    <body>
-      <main>
-      <p id="notice"></p>
+ <% if flash[:notice] %>
+  <p id="notice">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+     <p id="notice"></p>
       <div class="container">
         <div class="container">
           <div class="row">
@@ -34,22 +34,3 @@
           </div>
         </div>
       </div>
-      </main>
-      <footer>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="mx-auto">
-            <p>CopyRight Infratop.inc</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    </body>
-  </head>
-</html>
-
-<% if flash[:notice] %>
-  <p id="notice">
-    <%= flash[:notice] %>
-  </p>
-<% end %>
